@@ -1,0 +1,4 @@
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2RhOTRmOGZhMWQxNmJlZWMwOTg5OTEiLCJpYXQiOjE3NDIzNzgyMzIsImV4cCI6MTc0MjQ2NDYzMn0.CqaFIXtXSWm_YR8LNieKrKz9U4OVfCl7g1SDyp3BDz8",
+    "captain": "c@c.com"
+}
