@@ -16,10 +16,9 @@ const captainSchema=new mongoose.Schema({
     },
     email:{
         type:String,
-        lowercase:true,
-        unique:true,
         required:true,
-        match:[/^|S+@|S+1.15+$/,'Enter valid email']
+        unique:true,
+        minlength:[5,'Email must be atleast of 3 characters']
     },
     password:{
         type:String,
@@ -49,7 +48,7 @@ const captainSchema=new mongoose.Schema({
         capacity:{
             type:Number,
             required:true,
-            min:[3,'Atleast 3 characters']
+            min:[1,'Atleast 1']
         },
         vehicleType:{
             type:String,

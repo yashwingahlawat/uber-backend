@@ -20,7 +20,7 @@ module.exports.registerUser=async(req,res,next)=>{
         password:hashedPassword
     })
     const token=user.generateAuthToken();
-    res.status(200).json({token,user:user.email})
+    res.status(201).json({token,user:user})
     return res;
 }
 module.exports.loginUser=async(req,res)=>{
@@ -39,7 +39,7 @@ module.exports.loginUser=async(req,res)=>{
     }
     const token=await user.generateAuthToken()
     res.cookie('token',token)
-    return res.status(200).json({token,user:user.email});
+    return res.status(200).json({token,user:user});
 }
 module.exports.getUserProfile=async(req,res)=>{
     return res.status(200).json({user:req.user})
