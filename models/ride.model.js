@@ -7,8 +7,7 @@ const rideSchema=new mongoose.Schema({
     },
     captain:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Captain',
-        required:true
+        ref:'Captain'
     },
     pickup:{
         type:String,
@@ -21,5 +20,27 @@ const rideSchema=new mongoose.Schema({
     fare:{
         type:Number,
         required:true,
+    },
+    status:{
+        type:String,
+        enum:['pending','accepted','cancelled','completed','ongoing'],
+        default:'pending'
+    },
+    duration:{
+        type:Number
+    },// sec
+    distance:{
+        type:Number
+    },// meter
+    paymentID:{
+        type:String
+    },
+    orderID:{
+        type:String
+    },
+    signature:{
+        type:String
     }
 })
+
+module.exports=mongoose.model('ride',rideSchema)
