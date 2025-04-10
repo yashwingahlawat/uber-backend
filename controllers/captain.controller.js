@@ -7,16 +7,16 @@ module.exports.registerCaptain=async(req,res)=>{
     const errors=validationResult(req)
     
     if(!errors.isEmpty()){
-        console.log(errors.array());
+        // console.log(errors.array());
         return res.status(400).json({error:errors.array()})
     }
-    console.log(req.body);
+    // console.log(req.body);
     
     const {fullname,email,password,vehicle}=req.body
     
     const checkCaptain=await captainModel.findOne({email})
     if(checkCaptain){
-        console.log(checkCaptain);
+        // console.log(checkCaptain);
         return res.status(400).json({message:"Captain already exists."})
     }
     const hashedPassword=await captainModel.hashPassword(password)
@@ -26,7 +26,7 @@ module.exports.registerCaptain=async(req,res)=>{
         password:hashedPassword,
         vehicle
     })
-    console.log(captain);
+    // console.log(captain);
     
     const token=captain.generateToken()
     res.status(200).json({token,captain:captain})

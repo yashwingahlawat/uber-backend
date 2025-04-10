@@ -34,6 +34,8 @@ module.exports.authUser=async(req,res,next)=>{
         return next()
     }
     catch(error){
+        // console.log(2);
+        
         return res.status(401).json({message:"Unauthorized Acess"})
     }
 }

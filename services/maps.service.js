@@ -24,7 +24,7 @@ module.exports.getAddressCoordinate = async (address) => {
 };
 
 module.exports.getDistanceTime=async(origin,destination)=>{
-    console.log(origin,destination);
+    // console.log(origin,destination);
     
     if(!origin || !destination){
         throw new Error('Both origin and destination are required.')
@@ -36,12 +36,14 @@ module.exports.getDistanceTime=async(origin,destination)=>{
         if(response.data.status==='OK'){
             if(response.data.rows[0].elements[0].status=='ZERO_RESULTS')
                 throw new Error('No Route found.')
+            // console.log(response.data.rows[0].elements[0]);
+            
             return response.data.rows[0].elements[0]
         }
         else throw new Error('Unable to fetch distance and time')
     }
     catch(error){
-        console.error(error)
+        // console.error(error)
         return error
     }
 }
