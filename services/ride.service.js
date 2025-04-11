@@ -9,6 +9,7 @@ module.exports.createRide=async ({user,pickup,destination,vehicleType}) => {
         user,
         pickup,
         destination,
+        otp:getOTP(4),
         fare:fare[vehicleType]
     })
     // console.log('ok');
